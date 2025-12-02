@@ -3,133 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation E5 - BTS SIO</title>
+    <title>Présentation E5 - Développement Professionnel</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="slides-container">
-        <!-- Slide 1 - Apprentissage -->
-        <section class="slide active">
-            <h1>1. Environnement d'apprentissage personnel</h1>
-            <div class="content">
-                <h2><i class="fas fa-laptop-code"></i> Plateformes & outils</h2>
-                <ul>
-                    <li><strong>GitHub</strong> – Portfolio & projets</li>
-                    <li><strong>LinkedIn Learning</strong> – Formations</li>
-                    <li><strong>OpenClassrooms</strong> – Cours structurés</li>
-                    <li><strong>Google Atelier Numérique</strong> – Certifications</li>
-                </ul>
-                
-                <h2><i class="fas fa-certificate"></i> Certifications</h2>
-                <ul>
-                    <li><strong>RGPD</strong> – Protection des données ✓</li>
-                    <li><strong>Google Cloud Fundamentals</strong> – En cours</li>
-                    <li><strong>Git & GitHub</strong> – Maîtrise avancée</li>
-                </ul>
-                
-                <h2><i class="fas fa-tasks"></i> Organisation personnelle</h2>
-                <ul>
-                    <li>Planning de formation (Notion/Trello)</li>
-                    <li>Veille intégrée à l'apprentissage</li>
-                    <li>Objectifs mensuels de compétences</li>
-                </ul>
-            </div>
-            <div class="footer">Compétence 1.6.1</div>
-        </section>
+    <div class="container">
+        <!-- Navigation fixe -->
+        <nav class="global-nav">
+            <a href="#slide0" class="nav-dot active" data-slide="0">Accueil</a>
+            <a href="#slide1" class="nav-dot" data-slide="1">1</a>
+            <a href="#slide2" class="nav-dot" data-slide="2">2</a>
+            <a href="#slide3" class="nav-dot" data-slide="3">3</a>
+            <a href="#slide4" class="nav-dot" data-slide="4">4</a>
+        </nav>
 
-        <!-- Slide 2 - Veille -->
-        <section class="slide">
-            <h1>2. Veille informationnelle</h1>
-            <div class="content">
-                <h2><i class="fas fa-tags"></i> Thèmes de veille</h2>
-                <ul>
-                    <li><strong>Cybersécurité</strong> – Bonnes pratiques, vulnérabilités</li>
-                    <li><strong>Développement Web</strong> – Frameworks, outils</li>
-                    <li><strong>DevOps & Cloud</strong> – Automatisation</li>
-                </ul>
-                
-                <h2><i class="fas fa-tools"></i> Outils utilisés</h2>
-                <ul>
-                    <li><strong>Feedly</strong> – Agrégation RSS</li>
-                    <li><strong>Twitter/X</strong> – Experts tech</li>
-                    <li><strong>Google Alertes</strong> – Mots-clés</li>
-                </ul>
-                
-                <h2><i class="fas fa-newspaper"></i> Exemple d'article</h2>
-                <div class="example">
-                    <p><strong>Titre :</strong> "Les tendances DevOps 2024"</p>
-                    <p><strong>Source :</strong> TechCrunch</p>
-                    <p><strong>Pourquoi :</strong> Montre l'importance de l'automatisation et du monitoring</p>
-                    <a href="#">Lien vers l'article dans mon portfolio</a>
+        <!-- Slides -->
+        <div class="slides-container">
+            <!-- SLIDE 0 - ACCUEIL & SOMMAIRE -->
+            <section class="slide active" id="slide0">
+                <div class="welcome-card">
+                    <h1><i class="fas fa-user-tie"></i> Présentation E5</h1>
+                    <h2>Développement Professionnel - BTS SIO</h2>
+                    <div class="presentation">
+                        <div class="avatar">
+                            <!-- Remplace par ta photo -->
+                            <img src="https://via.placeholder.com/150/667eea/ffffff?text=TA+PHOTO" alt="Photo">
+                        </div>
+                        <div class="info">
+                            <h3>Prénom NOM</h3>
+                            <p>Étudiant en BTS SIO SLAM</p>
+                            <p class="portfolio-link">
+                                <i class="fab fa-github"></i>
+                                Portfolio : 
+                                <a href="https://abraham-e19.github.io/abraham-portfolio/" target="_blank">
+                                    abraham-e19.github.io/abraham-portfolio
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SOMMAIRE -->
+                    <div class="sommaire">
+                        <h3><i class="fas fa-bars"></i> Sommaire de la présentation</h3>
+                        <div class="sommaire-grid">
+                            <a href="#slide1" class="sommaire-item" data-slide="1">
+                                <div class="number">1</div>
+                                <div class="text">
+                                    <strong>Environnement d'apprentissage</strong>
+                                    <small>Plateformes, certifications, organisation</small>
+                                </div>
+                            </a>
+                            <a href="#slide2" class="sommaire-item" data-slide="2">
+                                <div class="number">2</div>
+                                <div class="text">
+                                    <strong>Veille informationnelle</strong>
+                                    <small>Thèmes, outils, exemples concrets</small>
+                                </div>
+                            </a>
+                            <a href="#slide3" class="sommaire-item" data-slide="3">
+                                <div class="number">3</div>
+                                <div class="text">
+                                    <strong>Identité professionnelle</strong>
+                                    <small>Portfolio, réseaux, stratégie</small>
+                                </div>
+                            </a>
+                            <a href="#slide4" class="sommaire-item" data-slide="4">
+                                <div class="number">4</div>
+                                <div class="text">
+                                    <strong>Projet professionnel</strong>
+                                    <small>Poursuite, métier, objectifs</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="start-presentation">
+                        <button id="start-btn">
+                            <i class="fas fa-play"></i> Commencer la présentation
+                        </button>
+                        <p class="hint">Utilise les flèches ← → pour naviguer</p>
+                    </div>
                 </div>
-            </div>
-            <div class="footer">Compétence 1.6.2</div>
-        </section>
+            </section>
 
-        <!-- Slide 3 - Identité pro -->
-        <section class="slide">
-            <h1>3. Identité professionnelle</h1>
-            <div class="content">
-                <h2><i class="fas fa-briefcase"></i> Portfolio en ligne</h2>
-                <ul>
-                    <li><strong>GitHub Pages</strong> – Hébergement gratuit</li>
-                    <li><strong>Contenu :</strong> Projets, veille, CV, compétences</li>
-                    <li><strong>Objectif :</strong> Montrer mes réalisations</li>
-                </ul>
-                <p class="link"><i class="fab fa-github"></i> <a href="https://github.com/tonpseudo">github.com/tonpseudo</a></p>
-                
-                <h2><i class="fas fa-network-wired"></i> Réseaux sociaux pros</h2>
-                <ul>
-                    <li><strong>LinkedIn</strong> – Profil complet, publications</li>
-                    <li><strong>GitHub</strong> – Code public, contributions</li>
-                    <li><strong>Twitter/X</strong> – Veille et partage</li>
-                </ul>
-                
-                <h2><i class="fas fa-chart-line"></i> Stratégie de visibilité</h2>
-                <ul>
-                    <li>Publier des synthèses de veille mensuelles</li>
-                    <li>Participer à des discussions techniques</li>
-                    <li>Maintenir une image cohérente et pro</li>
-                </ul>
-            </div>
-            <div class="footer">Compétence 1.6.3</div>
-        </section>
+            <!-- SLIDE 1 - APPRENTISSAGE -->
+            <section class="slide" id="slide1">
+                <div class="slide-header">
+                    <h1><i class="fas fa-graduation-cap"></i> 1. Environnement d'apprentissage personnel</h1>
+                    <p class="competence">Compétence 1.6.1</p>
+                </div>
+                <div class="slide-content">
+                    <div class="card">
+                        <h2><i class="fas fa-laptop-code"></i> Plateformes & outils</h2>
+                        <ul>
+                            <li><strong>GitHub</strong> – Portfolio, projets, collaboration</li>
+                            <li><strong>OpenClassrooms</strong> – Cours structurés en développement</li>
+                            <li><strong>YouTube Tech</strong> – Tutoriels, conférences, veille</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+                        <ul>
+                            <li><strong>RGPD</strong> – Protection des données personnelles ✓</li>
+                            <li><strong>Google Atelier Numérique</strong> – Fondamentaux du numérique</li>
+                            <li><strong>Git avancé</strong> – Gestion de versions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h2><i class="fas fa-tasks"></i> Organisation personnelle</h2>
+                        <ul>
+                            <li>Planning hebdomadaire sur <strong>Notion</strong></li>
+                            <li>Objectifs SMART par mois</li>
+                            <li>Révision des compétences chaque semaine</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Slide 4 - Projet pro -->
-        <section class="slide">
-            <h1>4. Projet professionnel</h1>
-            <div class="content">
-                <h2><i class="fas fa-graduation-cap"></i> Poursuite après BTS</h2>
-                <ul>
-                    <li><strong>Alternance</strong> en développement web/DevOps</li>
-                    <li><strong>Licence Pro</strong> Métiers de l'informatique</li>
-                    <li><strong>Bachelor</strong> en développement fullstack</li>
-                </ul>
-                
-                <h2><i class="fas fa-briefcase"></i> Métier visé</h2>
-                <ul>
-                    <li><strong>Développeur Fullstack</strong> – Frontend & Backend</li>
-                    <li><strong>DevOps Engineer</strong> – Automatisation, cloud</li>
-                    <li><strong>Analyste SOC</strong> – Cybersécurité (option)</li>
-                </ul>
-                
-                <h2><i class="fas fa-bullseye"></i> Objectifs court terme</h2>
-                <ul>
-                    <li>Certification <strong>AWS Cloud Practitioner</strong></li>
-                    <li>Portfolio avec <strong>3 projets concrets</strong></li>
-                    <li>Stage en entreprise cet été</li>
-                </ul>
-            </div>
-            <div class="footer">Compétence 1.6.4</div>
-        </section>
-    </div>
+            <!-- SLIDE 2 - VEILLE -->
+            <section class="slide" id="slide2">
+                <div class="slide-header">
+                    <h1><i class="fas fa-binoculars"></i> 2. Veille informationnelle</h1>
+                    <p class="competence">Compétence 1.6.2</p>
+                </div>
+                <div class="slide-content">
+                    <div class="card">
+                        <h2><i class="fas fa-tags"></i> Thèmes de veille</h2>
+                        <ul>
+                            <li><strong>Cybersécurité</strong> – Bonnes pratiques, actualités</li>
+                            <li><strong>Développement Web</strong> – Frameworks, outils</li>
+                            <li><strong>Intelligence Artificielle</strong> – Applications en dev</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h2><i class="fas fa-tools"></i> Outils utilisés</h2>
+                        <ul>
+                            <li><strong>Feedly</strong> – Agrégation RSS (quotidien)</li>
+                            <li><strong>Twitter/X</strong> – Experts, tendances tech</li>
+                            <li><strong>Google Alertes</strong> – Mots-clés personnalisés</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card highlight">
+                        <h2><i class="fas fa-newspaper"></i> Exemple concret</h2>
+                        <div class="article-example">
+                            <h3>"L'importance des tests en cybersécurité"</h3>
+                            <p><strong>Source :</strong> ZDNet France</p>
+                            <p><strong>Pourquoi cet article :</strong> Il montre comment intégrer la sécurité dès le début d'un projet.</p>
+                            <p><strong>Application :</strong> J'ai appliqué ces principes dans mon dernier projet de développement.</p>
+                            <a href="https://abraham-e19.github.io/abraham-portfolio/veille" target="_blank" class="article-link">
+                                Voir l'analyse complète dans mon portfolio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Navigation -->
-    <div class="nav">
-        <button id="prev"><i class="fas fa-arrow-left"></i> Précédent</button>
-        <span id="slide-indicator">1/4</span>
-        <button id="next">Suivant <i class="fas fa-arrow-right"></i></button>
+            <!-- SLIDE 3 - IDENTITÉ PRO -->
+            <section class="slide" id="slide3">
+                <div class="slide-header">
+                    <h1><i class="fas fa-id-card"></i> 3. Identité professionnelle</h1>
+                    <p class="competence">Compétence 1.6.3</p>
+                </div>
+                <div class="slide-content">
+                    <div class="card">
+                        <h2><i class="fas fa-briefcase"></i> Portfolio en ligne</h2>
+                        <ul>
+                            <li><strong>GitHub Pages</strong> – Hébergement professionnel gratuit</li>
+                            <li><strong>Contenu :</strong> Projets, veille, compétences, CV</li>
+                            <li><strong>Objectif :</strong> Valoriser mes réalisations</li>
+                        </ul>
+                        <div class="portfolio-link">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/abraham-e19" target="_blank">github.com/abraham-e19</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2><i class="fas fa-network-wired"></i> Réseaux professionnels</h2>
+                        <ul>
+                            <li><strong>LinkedIn</strong> – Profil complet, réseau professionnel</li>
+                            <li><strong>GitHub</strong> – Code public, contributions</li>
+                            <li><strong>Twitter Tech</strong> – Veille et échanges</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h2><i class="fas fa-chart-line"></i> Stratégie de visibilité</h2>
+                        <ul>
+                            <li>Publications mensuelles sur mes apprentissages</li>
+                            <li>Participation à des discussions techniques</li>
+                            <li>Mise à jour régulière du portfolio</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4 - PROJET PRO -->
+            <section class="slide" id="slide4">
+                <div class="slide-header">
+                    <h1><i class="fas fa-project-diagram"></i> 4. Projet professionnel</h1>
+                    <p class="competence">Compétence 1.6.4</p>
+                </div>
+                <div class="slide-content">
+                    <div class="card">
+                        <h2><i class="fas fa-graduation-cap"></i> Poursuite après BTS</h2>
+                        <ul>
+                            <li><strong>Alternance</strong> en développement web fullstack</li>
+                            <li><strong>Licence Professionnelle</strong> Métiers de l'informatique</li>
+                            <li><strong>Spécialisation</strong> en cybersécurité applicative</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h2><i class="fas fa-briefcase"></i> Métier visé</h2>
+                        <ul>
+                            <li><strong>Développeur Fullstack</strong> – Frontend & Backend</li>
+                            <li><strong>DevSecOps</strong> – Sécurité intégrée au développement</li>
+                            <li><strong>Analyste Cybersécurité</strong> – Option à moyen terme</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card highlight">
+                        <h2><i class="fas fa-bullseye"></i> Objectifs à court terme</h2>
+                        <ul>
+                            <li>Obtenir la certification <strong>AWS Cloud Practitioner</strong></li>
+                            <li>Finaliser 3 projets concrets pour le portfolio</li>
+                            <li>Trouver un <strong>stage</strong> en entreprise pour cet été</li>
+                            <li>Approfondir mes connaissances en <strong>React & Node.js</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="conclusion">
+                    <h3><i class="fas fa-flag-checkered"></i> Conclusion</h3>
+                    <p>Mon développement professionnel s'articule autour d'un apprentissage continu, d'une veille active et d'une identité numérique construite. Je vise une carrière dans le développement fullstack avec une sensibilité cybersécurité.</p>
+                    <a href="#slide0" class="back-to-start" data-slide="0">
+                        <i class="fas fa-home"></i> Retour à l'accueil
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation fléchée -->
+        <div class="slide-nav">
+            <button id="prev-btn" class="nav-btn">
+                <i class="fas fa-chevron-left"></i> Précédent
+            </button>
+            <span id="slide-indicator">Accueil</span>
+            <button id="next-btn" class="nav-btn">
+                Suivant <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
 
     <script src="script.js"></script>
