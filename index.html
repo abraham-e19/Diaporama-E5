@@ -3,366 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abraham Emmanuel - BTS SIO SISR</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Présentation E5 - Abraham Emmanuel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* STYLES SPÉCIFIQUES PAGE ACCUEIL */
-        body {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
+        /* RESET */
+        * {
             margin: 0;
-            overflow-x: hidden;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .hero {
+        body {
+            background: #0f172a;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .slides-container {
+            display: flex;
+            width: 500%;
+            height: 100vh;
+            transition: transform 0.5s ease;
+        }
+
+        /* CHAQUE SLIDE */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            padding: 40px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            padding: 40px 20px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* SLIDE 0 - ACCUEIL */
+        .slide:nth-child(1) {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             text-align: center;
-            position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-            z-index: -1;
+        /* SLIDE 1 - APPRENTISSAGE */
+        .slide:nth-child(2) {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
         }
 
-        .profile-container {
-            position: relative;
-            margin-bottom: 40px;
+        /* SLIDE 2 - VEILLE */
+        .slide:nth-child(3) {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
         }
 
+        /* SLIDE 3 - IDENTITÉ */
+        .slide:nth-child(4) {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        /* SLIDE 4 - PROJET */
+        .slide:nth-child(5) {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        /* CONTENU SLIDE 0 */
         .profile-pic {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #3b82f6;
-            box-shadow: 
-                0 0 50px rgba(59, 130, 246, 0.5),
-                0 10px 40px rgba(0, 0, 0, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .badge {
-            position: absolute;
-            bottom: 20px;
-            right: 10px;
-            background: #10b981;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+            border: 4px solid #3b82f6;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
         }
 
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
             background: linear-gradient(135deg, #60a5fa, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 15px;
         }
 
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #cbd5e1;
-            margin-bottom: 30px;
-            max-width: 800px;
-        }
-
-        .specialization {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(30, 41, 59, 0.8);
-            padding: 15px 30px;
-            border-radius: 15px;
-            border-left: 4px solid #3b82f6;
             margin-bottom: 40px;
         }
 
-        .specialization i {
-            color: #3b82f6;
-            font-size: 1.5rem;
-        }
-
-        .stats {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #60a5fa;
-            display: block;
-        }
-
-        .stat-label {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 15px 35px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
+        .badge {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            background: rgba(59, 130, 246, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid #3b82f6;
+            margin-bottom: 40px;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: bold;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* CONTENU DES SLIDES */
+        .slide-header {
+            margin-bottom: 40px;
+        }
+
+        .slide-header h2 {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .competence {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .slide-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .card h3 {
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            color: #cbd5e1;
+        }
+
+        .card li strong {
+            color: white;
+        }
+
+        /* NAVIGATION */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        .dot.active {
+            background: #3b82f6;
+            transform: scale(1.3);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid #3b82f6;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .feature-card {
-            background: rgba(30, 41, 59, 0.8);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            border-top: 4px solid #10b981;
-            transition: transform 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(30, 41, 59, 0.9);
-        }
-
-        .feature-card i {
-            font-size: 2.5rem;
-            color: #3b82f6;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .feature-card p {
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 30px;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
-        }
-
-        .tech-icons {
+        .slide-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: rgba(59, 130, 246, 0.3);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 25px;
-            margin: 40px 0;
-            font-size: 2rem;
-            color: #60a5fa;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #3b82f6;
+            transform: scale(1.1);
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            color: #94a3b8;
+            font-size: 1.1rem;
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1.2rem; }
-            .profile-pic { width: 180px; height: 180px; }
-            .stats { gap: 25px; }
-            .stat-number { font-size: 2rem; }
-            .cta-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .slide {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-dots {
+                right: 10px;
+            }
+            
+            .slide-nav {
+                bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <!-- Photo de profil -->
-        <div class="profile-container">
+    <!-- Points de navigation -->
+    <div class="nav-dots">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
+        <div class="dot" data-slide="4"></div>
+    </div>
+
+    <!-- Conteneur des slides -->
+    <div class="slides-container" id="slides-container">
+        <!-- SLIDE 0 - ACCUEIL -->
+        <div class="slide">
             <img src="https://abraham-e19.github.io/Diaporama-E5/assets/photo-profil.jpg.png" 
                  alt="Abraham Emmanuel" class="profile-pic">
+            <h1>Abraham Emmanuel</h1>
+            <p class="subtitle">Étudiant BTS SIO SISR - 19 ans</p>
+            
             <div class="badge">
-                <i class="fas fa-shield-alt"></i> BTS SIO SISR
+                <i class="fas fa-shield-alt"></i>
+                Spécialité : Cybersécurité & Réseaux
+            </div>
+            
+            <p style="max-width: 700px; margin: 0 auto 30px; color: #cbd5e1; line-height: 1.6;">
+                Présentation de mon développement professionnel pour l'épreuve E5.<br>
+                10 minutes pour exposer mon parcours, ma veille et mon projet.
+            </p>
+            
+            <button class="start-btn" id="start-btn">
+                <i class="fas fa-play"></i> Commencer la présentation
+            </button>
+            
+            <div style="margin-top: 50px; color: #64748b; font-size: 0.9rem;">
+                <p><i class="fas fa-arrow-left"></i> Utilise les flèches ou la barre espace pour naviguer</p>
             </div>
         </div>
 
-        <!-- Titre principal -->
-        <h1>Abraham Emmanuel</h1>
-        <p class="subtitle">
-            Étudiant passionné par la cybersécurité et les systèmes réseaux.<br>
-            Je prépare actuellement mon oral E5 avec un focus sur le développement professionnel.
-        </p>
-
-        <!-- Spécialisation -->
-        <div class="specialization">
-            <i class="fas fa-network-wired"></i>
-            <div>
-                <strong>Spécialité :</strong> Sécurité des systèmes d'information & Administration réseaux
+        <!-- SLIDE 1 - APPRENTISSAGE -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2><i class="fas fa-graduation-cap"></i> Apprentissage Personnel</h2>
+                <p class="competence">Compétence 1.6.1 - Mettre en place son environnement d'apprentissage</p>
+            </div>
+            
+            <div class="slide-content">
+                <div class="card">
+                    <h3><i class="fas fa-laptop-code"></i> Plateformes</h3>
+                    <ul>
+                        <li><strong>TryHackMe</strong> - Labs cybersécurité</li>
+                        <li><strong>Cisco NetAcad</strong> - Formation réseaux</li>
+                        <li><strong>YouTube Tech</strong> - Tutoriels experts</li>
+                        <li><strong>GitHub</strong> - Projets & portfolio</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <ul>
+                        <li><strong>CCNA 1</strong> - Routing & Switching</li>
+                        <li><strong>Cybersécurité Essentials</strong> - Cisco</li>
+                        <li><strong>RGPD</strong> - Protection données ✓</li>
+                        <li><strong>SecNum Académie</strong> - ANSSI</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-tasks"></i> Organisation</h3>
+                    <ul>
+                        <li>Lab pratique chaque semaine</li>
+                        <li>Veille quotidienne (30 min/jour)</li>
+                        <li>Projets perso : scripts, labs</li>
+                        <li>Révision protocoles & failles</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-number">BTS</span>
-                <span class="stat-label">SIO SISR</span>
+        <!-- SLIDE 2 - VEILLE -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2><i class="fas fa-binoculars"></i> Veille Informationnelle</h2>
+                <p class="competence">Compétence 1.6.2 - Outils et stratégies de veille</p>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">19</span>
-                <span class="stat-label">Ans</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Cybersécurité</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">E5</span>
-                <span class="stat-label">Présentation</span>
-            </div>
-        </div>
-
-        <!-- Icônes technologies -->
-        <div class="tech-icons">
-            <i class="fas fa-shield-alt" title="Cybersécurité"></i>
-            <i class="fas fa-server" title="Serveurs"></i>
-            <i class="fas fa-network-wired" title="Réseaux"></i>
-            <i class="fas fa-code" title="Développement"></i>
-            <i class="fas fa-database" title="Bases de données"></i>
-        </div>
-
-        <!-- Boutons d'action -->
-        <div class="cta-buttons">
-            <a href="sommaire.html" class="btn btn-primary">
-                <i class="fas fa-play-circle"></i> Commencer la présentation
-            </a>
-            <a href="https://abraham-e19.github.io/abraham-portfolio/" 
-               target="_blank" class="btn btn-secondary">
-                <i class="fas fa-globe"></i> Voir mon portfolio
-            </a>
-            <a href="https://github.com/abraham-e19" 
-               target="_blank" class="btn btn-secondary">
-                <i class="fab fa-github"></i> Mon GitHub
-            </a>
-        </div>
-
-        <!-- Features -->
-        <div class="features">
-            <div class="feature-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Apprentissage</h3>
-                <p>Formation continue en cybersécurité, réseaux Cisco, et administration système.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-binoculars"></i>
-                <h3>Veille Techno</h3>
-                <p>Veille active sur les failles de sécurité, nouvelles menaces et bonnes pratiques.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-id-card"></i>
-                <h3>Identité Pro</h3>
-                <p>Portfolio en ligne, réseaux professionnels et visibilité dans le secteur.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Projet Pro</h3>
-                <p>Objectif : Analyste SOC ou Administrateur Sécurité Réseau en alternance.</p>
+            
+            <div class="slide-content">
+                <div class="card">
+                    <h3><i class="fas fa-tags"></i> Thèmes</h3>
+                    <ul>
+                        <li><strong>Cybersécurité</strong> - Pentest, Blue Team</li>
+                        <li><strong>Sécurité réseau</strong> - Firewalls, IDS/IPS</li>
+                        <li><strong>Failles zero-day</strong> - Actualités CVE</li>
+                        <li><strong>Réglementation</strong> - RGPD, NIS 2</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> Outils</h3>
+                    <ul>
+                        <li><strong>Twitter/X</strong> - Experts (@MalwareNews)</li>
+                        <li><strong>Feedly</strong> - Blogs spécialisés</li>
+                        <li><strong>Google Alertes</strong> - Mots-clés</li>
+                        <li><strong>Reddit</strong> - r/netsec, r/cybersecurity</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-newspaper"></i> Exemple</h3>
+                    <ul>
+                        <li><strong>Article :</strong> "Hausse ransomware PME 2024"</li>
+                        <li><strong>Source :</strong> ANSSI - Bulletin</li>
+                        <li><strong>Application :</strong> Guide bonnes pratiques</li>
+                        <li><strong>Portfolio :</strong> Analyse détaillée</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>Présentation E5 - BTS SIO SISR | Abraham Emmanuel | 2024</p>
-            <p>Navigation : Cliquez sur "Commencer la présentation" pour accéder au sommaire</p>
+        <!-- SLIDE 3 - IDENTITÉ -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2><i class="fas fa-id-card"></i> Identité Professionnelle</h2>
+                <p class="competence">Compétence 1.6.3 - Gérer son identité pro</p>
+            </div>
+            
+            <div class="slide-content">
+                <div class="card">
+                    <h3><i class="fas fa-briefcase"></i> Portfolio</h3>
+                    <ul>
+                        <li><strong>GitHub Pages</strong> - Hébergement pro</li>
+                        <li><strong>Contenu :</strong> Projets, veille, CV</li>
+                        <li><strong>Objectif :</strong> Valoriser réalisations</li>
+                        <li><strong>Lien :</strong> abraham-e19.github.io</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-network-wired"></i> Réseaux</h3>
+                    <ul>
+                        <li><strong>LinkedIn</strong> - Profil cybersécurité</li>
+                        <li><strong>GitHub</strong> - Scripts, configurations</li>
+                        <li><strong>TryHackMe</strong> - Badges publics</li>
+                        <li><strong>Twitter</strong> - Partage veille</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Stratégie</h3>
+                    <ul>
+                        <li>Synthèse mensuelle de veille</li>
+                        <li>Participation challenges CTF</li>
+                        <li>Tutoriels sur labs réalisés</li>
+                        <li>Mise à jour certifications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 - PROJET -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2><i class="fas fa-project-diagram"></i> Projet Professionnel</h2>
+                <p class="competence">Compétence 1.6.4 - Développer son projet pro</p>
+            </div>
+            
+            <div class="slide-content">
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap"></i> Poursuite</h3>
+                    <ul>
+                        <li><strong>Licence Pro</strong> Cybersécurité & Réseaux</li>
+                        <li><strong>Alternance</strong> Administrateur SOC</li>
+                        <li><strong>Certifications :</strong> CCNA, Security+</li>
+                        <li><strong>Objectif 3 ans :</strong> Analyste SOC N2</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-briefcase"></i> Métier visé</h3>
+                    <ul>
+                        <li><strong>Analyste SOC</strong> (Security Ops Center)</li>
+                        <li><strong>Admin Sécurité Réseau</strong></li>
+                        <li><strong>Technicien Réponse Incidents</strong></li>
+                        <li><strong>À terme :</strong> Pentester</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-bullseye"></i> Objectifs 2024</h3>
+                    <ul>
+                        <li><strong>CCNA 1 & 2</strong> - Certification</li>
+                        <li><strong>50+ rooms</strong> TryHackMe</li>
+                        <li><strong>Stage</strong> en sécurité</li>
+                        <li><strong>Lab surveillance</strong> réseau complet</li>
+                        <li><strong>CTF en équipe</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <h3 style="color: #10b981;"><i class="fas fa-flag-checkered"></i> Conclusion</h3>
+                <p style="color: #cbd5e1; max-width: 800px; margin: 20px auto; line-height: 1.6;">
+                    Mon développement professionnel s'articule autour de la cybersécurité opérationnelle, 
+                    combinant apprentissage technique, veille stratégique et construction d'une identité 
+                    professionnelle solide pour contribuer à la protection des systèmes d'information.
+                </p>
+            </div>
         </div>
     </div>
 
+    <!-- Navigation fléchée -->
+    <div class="slide-nav">
+        <button class="nav-btn" id="prev-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-btn" id="next-btn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Compteur -->
+    <div class="slide-counter" id="slide-counter">1/5</div>
+
     <script>
-        // Animation simple pour les stats
-        document.addEventListener('DOMContentLoaded', function() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach((stat, index) => {
-                setTimeout(() => {
-                    stat.style.opacity = '1';
-                    stat.style.transform = 'translateY(0)';
-                }, index * 200);
+        // INITIALISATION
+        let currentSlide = 0;
+        const totalSlides = 5;
+        const slidesContainer = document.getElementById('slides-container');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const counter = document.getElementById('slide-counter');
+        const startBtn = document.getElementById('start-btn');
+
+        // FONCTION POUR CHANGER DE SLIDE
+        function goToSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            
+            currentSlide = index;
+            
+            // Déplacer le conteneur
+            slidesContainer.style.transform = `translateX(-${currentSlide * 20}%)`;
+            
+            // Mettre à jour les points
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
             });
+            
+            // Mettre à jour le compteur
+            counter.textContent = `${currentSlide + 1}/${totalSlides}`;
+            
+            // Désactiver/activer boutons
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        // ÉVÉNEMENTS
+        // Points de navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
         });
+
+        // Flèches
+        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+        // Bouton start
+        startBtn.addEventListener('click', () => goToSlide(1));
+
+        // CLAVIER
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft': 
+                    goToSlide(currentSlide - 1);
+                    break;
+                case 'ArrowRight':
+                case ' ':
+                    goToSlide(currentSlide + 1);
+                    break;
+                case '1': goToSlide(0); break;
+                case '2': goToSlide(1); break;
+                case '3': goToSlide(2); break;
+                case '4': goToSlide(3); break;
+                case '5': goToSlide(4); break;
+            }
+        });
+
+        // INIT
+        goToSlide(0);
+
+        // Message console
+        console.log('🎯 Diaporama E5 - Abraham Emmanuel');
+        console.log('🚀 Navigation : Flèches, Espace, 1-5');
     </script>
 </body>
 </html>
