@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ÉLÉMENTS
     const slides = document.querySelectorAll('.slide');
     const navDots = document.querySelectorAll('.nav-dot');
-    const sommaireItems = document.querySelectorAll('.sommaire-item');
+    const sommaireItems = document.querySelectorAll('.sommaire-card');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const startBtn = document.getElementById('start-btn');
@@ -15,10 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // NOMS DES SLIDES POUR L'INDICATEUR
     const slideNames = [
         "Accueil - Abraham Emmanuel",
-        "1. Apprentissage Personnel",
-        "2. Veille Cybersécurité", 
-        "3. Identité Professionnelle",
-        "4. Projet Professionnel"
+        "Plan de présentation",
+        "Profil",
+        "Entreprise - Stage chez Linkt",
+        "Projets",
+        "Compétences",
+        "Veille technologique",
+        "Conclusion"
     ];
     
     // FONCTION POUR CHANGER DE SLIDE
@@ -31,14 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
         slides.forEach(slide => slide.classList.remove('active'));
         
         // Afficher la slide courante
-        slides[index].classList.add('active');
-        currentSlide = index;
+        if (slides[index]) {
+            slides[index].classList.add('active');
+            currentSlide = index;
+        }
         
         // Mettre à jour la navigation
         updateNavigation();
         
-        // Scroll vers le haut (pour mobile)
-        window.scrollTo(0, 0);
+        // Scroll vers le haut
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     // METTRE À JOUR LA NAVIGATION
@@ -54,75 +59,84 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Indicateur de slide
         if (slideIndicator) {
-            slideIndicator.textContent = slideNames[currentSlide];
+            if (slideNames[currentSlide]) {
+                slideIndicator.textContent = slideNames[currentSlide];
+            } else {
+                slideIndicator.textContent = `Slide ${currentSlide + 1}`;
+            }
         }
     }
     
-    // ÉVÉNEMENTS
-    
-    // Navigation par points
+    // NAVIGATION PAR POINTS
     navDots.forEach(dot => {
         dot.addEventListener('click', function(e) {
             e.preventDefault();
-            const slideIndex = parseInt(this.getAttribute('data-slide'));
-            goToSlide(slideIndex);
+            const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
+            if (!isNaN(slideIndex)) {
+                goToSlide(slideIndex);
+            }
         });
     });
     
-    // Navigation par sommaire
+    // NAVIGATION PAR SOMMAIRE
     sommaireItems.forEach(item => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
-            const slideIndex = parseInt(this.getAttribute('data-slide'));
-            goToSlide(slideIndex);
+            const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
+            if (!isNaN(slideIndex)) {
+                goToSlide(slideIndex);
+            }
         });
     });
     
-    // Bouton "Commencer"
+    // BOUTON "COMMENCER"
     if (startBtn) {
-        startBtn.addEventListener('click', () => goToSlide(1));
+        startBtn.addEventListener('click', function() {
+            goToSlide(1);
+        });
     }
     
-    // Boutons précédent/suivant
+    // BOUTONS PRÉCÉDENT / SUIVANT
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+        prevBtn.addEventListener('click', function() {
+            goToSlide(currentSlide - 1);
+        });
     }
     
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+        nextBtn.addEventListener('click', function() {
+            goToSlide(currentSlide + 1);
+        });
     }
     
-    // Liens de conclusion
+    // LIENS FINAUX
     finalLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            if (this.hasAttribute('data-slide')) {
+            const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
+            if (!isNaN(slideIndex)) {
                 e.preventDefault();
-                const slideIndex = parseInt(this.getAttribute('data-slide'));
                 goToSlide(slideIndex);
             }
         });
     });
     
     // NAVIGATION CLAVIER
-    document.addEventListener('keydown', (e) => {
-        // Ignorer si on est dans un input/textarea
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    document.addEventListener('keydown', function(e) {
+        // Ignorer si on est dans un champ de saisie
+        const tag = e.target.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
         
-        switch(e.key) {
+        switch (e.key) {
             case 'ArrowLeft':
             case 'PageUp':
-                if (currentSlide > 0) {
-                    goToSlide(currentSlide - 1);
-                }
+                goToSlide(currentSlide - 1);
                 e.preventDefault();
                 break;
                 
             case 'ArrowRight':
-            case ' ':
             case 'PageDown':
-                if (currentSlide < totalSlides - 1) {
-                    goToSlide(currentSlide + 1);
-                }
+            case ' ':
+                goToSlide(currentSlide + 1);
                 e.preventDefault();
                 break;
                 
@@ -135,40 +149,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 goToSlide(totalSlides - 1);
                 e.preventDefault();
                 break;
-                
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-                const num = parseInt(e.key);
-                if (num >= 0 && num < totalSlides) {
-                    goToSlide(num);
-                }
-                e.preventDefault();
-                break;
         }
     });
     
-    // NAVIGATION PAR CLIC SUR LES COTÉS
-    document.addEventListener('click', (e) => {
-        // Ignorer les clics sur les liens, boutons, etc.
-        if (e.target.tagName === 'A' || 
-            e.target.tagName === 'BUTTON' || 
-            e.target.closest('a') || 
-            e.target.closest('button')) {
+    // NAVIGATION PAR CLIC SUR LES CÔTÉS
+    document.addEventListener('click', function(e) {
+        // Ignorer les clics sur les éléments interactifs
+        if (
+            e.target.tagName === 'A' ||
+            e.target.tagName === 'BUTTON' ||
+            e.target.closest('a') ||
+            e.target.closest('button') ||
+            e.target.closest('.sommaire-card') ||
+            e.target.closest('.nav-dot')
+        ) {
             return;
         }
         
         const windowWidth = window.innerWidth;
         const clickX = e.clientX;
         
-        // Clic à droite → slide suivante
-        if (clickX > windowWidth * 0.7 && currentSlide < totalSlides - 1) {
+        // Zone droite = slide suivante
+        if (clickX > windowWidth * 0.75) {
             goToSlide(currentSlide + 1);
         }
-        // Clic à gauche → slide précédente
-        else if (clickX < windowWidth * 0.3 && currentSlide > 0) {
+        
+        // Zone gauche = slide précédente
+        else if (clickX < windowWidth * 0.25) {
             goToSlide(currentSlide - 1);
         }
     });
@@ -176,8 +183,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // INITIALISATION
     goToSlide(0);
     
-    // Message de débogage
-    console.log('🎯 Diaporama E5 - Abraham Emmanuel chargé !');
-    console.log('📋 Navigation : Flèches, Espace, Clic sur les côtés');
-    console.log('🔗 Portfolio : https://abraham-e19.github.io/abraham-portfolio/');
+    console.log('🎯 Diaporama E5 chargé avec succès');
 });
